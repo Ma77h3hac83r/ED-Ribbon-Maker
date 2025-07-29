@@ -33,6 +33,7 @@ npx shadcn@latest init
 ```
 
 Install essential components:
+
 ```bash
 npx shadcn@latest add button card input label toast
 npx shadcn@latest add form dialog dropdown-menu
@@ -42,12 +43,10 @@ npx shadcn@latest add avatar badge separator
 ### 4. Configure ESLint and Prettier
 
 Create `.eslintrc.json`:
+
 ```json
 {
-  "extends": [
-    "next/core-web-vitals",
-    "prettier"
-  ],
+  "extends": ["next/core-web-vitals", "prettier"],
   "plugins": ["@typescript-eslint"],
   "rules": {
     "@typescript-eslint/no-unused-vars": "error",
@@ -58,6 +57,7 @@ Create `.eslintrc.json`:
 ```
 
 Create `.prettierrc`:
+
 ```json
 {
   "semi": true,
@@ -72,6 +72,7 @@ Create `.prettierrc`:
 ### 5. Set up Vitest for Testing
 
 Create `vitest.config.ts`:
+
 ```typescript
 import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
@@ -92,6 +93,7 @@ export default defineConfig({
 ```
 
 Create `src/test/setup.ts`:
+
 ```typescript
 import '@testing-library/jest-dom';
 ```
@@ -118,6 +120,7 @@ src/
 ### 7. Essential Utility Files
 
 Create `src/lib/utils.ts`:
+
 ```typescript
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -128,6 +131,7 @@ export function cn(...inputs: ClassValue[]) {
 ```
 
 Create `src/lib/validations.ts`:
+
 ```typescript
 import * as z from 'zod';
 
@@ -136,15 +140,17 @@ export const loginSchema = z.object({
   password: z.string().min(8),
 });
 
-export const registerSchema = z.object({
-  username: z.string().min(3).max(20),
-  email: z.string().email(),
-  password: z.string().min(8),
-  confirmPassword: z.string(),
-}).refine((data) => data.password === data.confirmPassword, {
-  message: "Passwords don't match",
-  path: ["confirmPassword"],
-});
+export const registerSchema = z
+  .object({
+    username: z.string().min(3).max(20),
+    email: z.string().email(),
+    password: z.string().min(8),
+    confirmPassword: z.string(),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords don't match",
+    path: ['confirmPassword'],
+  });
 
 export const inaraApiKeySchema = z.object({
   apiKey: z.string().min(1, 'API key is required'),
@@ -158,6 +164,7 @@ export type InaraApiKeyInput = z.infer<typeof inaraApiKeySchema>;
 ### 8. Set up TanStack Query
 
 Create `src/lib/providers.tsx`:
+
 ```typescript
 'use client';
 
@@ -188,6 +195,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
 ```
 
 Update `src/app/layout.tsx`:
+
 ```typescript
 import { Providers } from '@/lib/providers';
 
@@ -209,11 +217,15 @@ export default function RootLayout({
 ### 9. Basic API Client Setup
 
 Create `src/lib/api-client.ts`:
+
 ```typescript
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8787';
 
 class ApiError extends Error {
-  constructor(public status: number, message: string) {
+  constructor(
+    public status: number,
+    message: string
+  ) {
     super(message);
     this.name = 'ApiError';
   }
@@ -270,6 +282,7 @@ export const apiClient = {
 ### 10. Environment Variables
 
 Create `.env.local`:
+
 ```env
 # Development
 NEXT_PUBLIC_API_URL=http://localhost:8787
@@ -307,6 +320,7 @@ NEXT_PUBLIC_API_URL=http://localhost:8787
 ### 12. VS Code Settings
 
 Create `.vscode/settings.json`:
+
 ```json
 {
   "editor.formatOnSave": true,
@@ -332,6 +346,7 @@ Create `.vscode/settings.json`:
 ## Recommended VS Code Extensions
 
 Install these extensions for the best development experience:
+
 - Tailwind CSS IntelliSense
 - ES7+ React/Redux/React-Native snippets
 - Auto Rename Tag
@@ -342,6 +357,7 @@ Install these extensions for the best development experience:
 - Import Cost
 
 This setup provides a solid foundation with:
+
 - ✅ Type-safe development with TypeScript and Zod
 - ✅ Modern React patterns with TanStack Query
 - ✅ Beautiful UI components with shadcn/ui

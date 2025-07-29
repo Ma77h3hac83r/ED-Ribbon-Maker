@@ -1,0 +1,30 @@
+name = "ed-ribbon-maker"
+main = "src/app/functions/index.ts"
+compatibility_date = "2024-01-15"
+
+[env.production]
+name = "ed-ribbon-maker"
+
+# D1 Database
+[[d1_databases]]
+binding = "DB"
+database_name = "ed-ribbon-maker-db"
+database_id = "a223dac4-b83a-4b5d-bb48-3c095380d615"
+
+# KV Namespace for caching
+[[kv_namespaces]]
+binding = "ED_RIBBON_MAKER_CACHE"
+id = "1e73c468050c425aa6de302e32780389"
+
+# R2 Bucket (to be enabled in Cloudflare Dashboard)
+[[r2_buckets]]
+binding = "ED_RIBBON_MAKER_IMAGES"
+bucket_name = "ed-ribbon-maker-images"
+
+# Environment variables
+[vars]
+NODE_ENV = "production"
+
+# Cron triggers for data synchronization
+[triggers]
+crons = ["0 */6 * * *"] # Every 6 hours

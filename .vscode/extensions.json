@@ -1,0 +1,21 @@
+{
+  "recommendations": [
+    "bradlc.vscode-tailwindcss",
+    "dsznajder.es7-react-js-snippets",
+    "formulahendry.auto-rename-tag",
+    "coenraads.bracket-pair-colorizer-2",
+    "eamodio.gitlens",
+    "rangav.vscode-thunder-client",
+    "usernamehw.errorlens",
+    "wix.vscode-import-cost",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "ms-vscode.vscode-typescript-next",
+    "ms-vscode.vscode-json",
+    "bradlc.vscode-tailwindcss",
+    "ms-vscode.vscode-css-peek",
+    "christian-kohler.path-intellisense",
+    "ms-vscode.vscode-js-debug",
+    "ms-vscode.vscode-js-debug-companion"
+  ]
+}

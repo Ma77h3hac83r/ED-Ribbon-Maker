@@ -1,11 +1,13 @@
 # ED Ribbon Maker - Project Outline
 
 ## Project Overview
+
 A Cloudflare-hosted web application that allows Elite Dangerous pilots to generate virtual "ribbon racks" of their in-game achievements by synchronizing data from Inara.cz. The app renders scalable SVG ribbons following a 32×8.22mm format for various career paths and navy ranks.
 
 ## Architecture Overview
 
 ### Frontend Stack
+
 - **Framework**: React 18 + TypeScript
 - **Build System**: Next.js with App Router
 - **Styling**: Tailwind CSS with shadcn/ui components
@@ -15,6 +17,7 @@ A Cloudflare-hosted web application that allows Elite Dangerous pilots to genera
 - **Deployment**: Cloudflare Pages
 
 ### Backend/Edge Stack
+
 - **Runtime**: Cloudflare Workers with Hono framework
 - **API Integration**: Inara.cz API (https://inara.cz/inapi/v1/)
 - **Authentication**: JWT session cookies with Jose library
@@ -22,6 +25,7 @@ A Cloudflare-hosted web application that allows Elite Dangerous pilots to genera
 - **Validation**: Zod schemas for request/response validation
 
 ### Data Storage Strategy
+
 - **Primary Database**: Cloudflare D1 (SQLite) with Drizzle ORM
   - User records
   - Hashed API keys
@@ -39,18 +43,21 @@ A Cloudflare-hosted web application that allows Elite Dangerous pilots to genera
 ## Core Features
 
 ### 1. User Authentication & Account Management
+
 - User registration/login system with NextAuth.js or Clerk
 - Secure storage of Inara API keys (hashed with bcryptjs)
 - Session management with JWT cookies
 - Password reset and email verification
 
 ### 2. Data Synchronization
+
 - Inara API integration for commander profile data
 - Data normalization and caching with TanStack Query
 - Periodic background syncs via Cron triggers
 - Rate limiting and error handling
 
 ### 3. Ribbon Generation System
+
 - SVG-based ribbon components for:
   - Combat achievements
   - Explorer achievements
@@ -64,6 +71,7 @@ A Cloudflare-hosted web application that allows Elite Dangerous pilots to genera
 - Interactive ribbon editing with Fabric.js or Konva.js
 
 ### 4. API Endpoints
+
 - RESTful endpoints for React frontend
 - Commander profile data retrieval
 - Ribbon generation requests
@@ -73,6 +81,7 @@ A Cloudflare-hosted web application that allows Elite Dangerous pilots to genera
 ## Development Tools & Standards
 
 ### Code Quality & Standards
+
 - **ESLint + Prettier**: Code formatting and linting
   - `@typescript-eslint/eslint-plugin` for strict TypeScript rules
   - `eslint-plugin-react-hooks` for React best practices
@@ -80,17 +89,20 @@ A Cloudflare-hosted web application that allows Elite Dangerous pilots to genera
   - `prettier-plugin-tailwindcss` for automatic class sorting
 
 ### Type Safety & Validation
+
 - **Zod**: Runtime type validation for API requests/responses
 - **React Hook Form + Zod**: Type-safe form handling
 - **tRPC**: Type-safe API layer between frontend and backend (optional)
 
 ### Testing Strategy
+
 - **Vitest**: Fast unit testing (works great with Cloudflare Workers)
 - **MSW (Mock Service Worker)**: Mock Inara API for development
 - **Playwright**: End-to-end testing with visual regression testing
 - **Testing Library**: Component testing utilities
 
 ### Performance & Optimization
+
 - **Next.js Image Optimization**: Built-in image optimization
 - **React.memo & useMemo**: Optimize ribbon rendering
 - **React.lazy**: Code splitting for ribbon components
@@ -100,6 +112,7 @@ A Cloudflare-hosted web application that allows Elite Dangerous pilots to genera
 ## Security & Compliance
 
 ### Authentication & Authorization
+
 - Cloudflare Access integration
 - Salted hash storage for API keys
 - HTTPS-only communication
@@ -107,6 +120,7 @@ A Cloudflare-hosted web application that allows Elite Dangerous pilots to genera
 - Rate limiting and DDoS protection
 
 ### Data Protection
+
 - Never store raw API keys
 - Encrypted data transmission
 - Secure session handling
@@ -116,6 +130,7 @@ A Cloudflare-hosted web application that allows Elite Dangerous pilots to genera
 ## Deployment & Infrastructure
 
 ### CI/CD Pipeline
+
 - GitHub-based source control
 - Cloudflare Pages automatic deployment
 - Built-in GitHub Actions for "pages-deploy"
@@ -123,6 +138,7 @@ A Cloudflare-hosted web application that allows Elite Dangerous pilots to genera
 - Environment-specific deployments
 
 ### Monitoring & Observability
+
 - Sentry integration for error tracking and performance monitoring
 - Cloudflare Workers trace for latency monitoring
 - Cloudflare Analytics and Web Vitals dashboards
@@ -130,6 +146,7 @@ A Cloudflare-hosted web application that allows Elite Dangerous pilots to genera
 - Optional logpush to R2/BigQuery/S3
 
 ### Development Workflow
+
 - **Wrangler**: Local development with `wrangler dev --local`
 - **Docker**: Consistent development environment
 - **Concurrently**: Run multiple dev servers simultaneously
@@ -138,6 +155,7 @@ A Cloudflare-hosted web application that allows Elite Dangerous pilots to genera
 ## Future Extensibility
 
 ### Planned Integrations
+
 - Frontier OAuth verification
 - CQC integration (additional rank table)
 - Enhanced achievement tracking
@@ -145,6 +163,7 @@ A Cloudflare-hosted web application that allows Elite Dangerous pilots to genera
 - Social features
 
 ### Scalability Considerations
+
 - Edge computing for global performance
 - CDN delivery for generated images
 - Rate limiting and caching strategies
@@ -153,6 +172,7 @@ A Cloudflare-hosted web application that allows Elite Dangerous pilots to genera
 ## Technical Specifications
 
 ### API Endpoints (Planned)
+
 - `POST /api/auth/login` - User authentication
 - `POST /api/auth/register` - User registration
 - `POST /api/sync/inara` - Inara data synchronization
@@ -161,6 +181,7 @@ A Cloudflare-hosted web application that allows Elite Dangerous pilots to genera
 - `PUT /api/user/preferences` - User preferences update
 
 ### Database Schema (D1 with Drizzle ORM)
+
 ```typescript
 import { sqliteTable, text, integer, datetime } from 'drizzle-orm/sqlite-core';
 
@@ -174,7 +195,9 @@ export const users = sqliteTable('users', {
 
 export const commanderProfiles = sqliteTable('commander_profiles', {
   id: text('id').primaryKey(),
-  userId: text('user_id').notNull().references(() => users.id),
+  userId: text('user_id')
+    .notNull()
+    .references(() => users.id),
   inaraCommanderId: text('inara_commander_id').notNull(),
   apiKeyHash: text('api_key_hash').notNull(),
   lastSync: datetime('last_sync'),
@@ -182,13 +205,16 @@ export const commanderProfiles = sqliteTable('commander_profiles', {
 });
 
 export const userPreferences = sqliteTable('user_preferences', {
-  userId: text('user_id').primaryKey().references(() => users.id),
+  userId: text('user_id')
+    .primaryKey()
+    .references(() => users.id),
   ribbonLayout: text('ribbon_layout'), // JSON
   displayOptions: text('display_options'), // JSON
 });
 ```
 
 ### Project Structure
+
 ```
 src/
 ├── components/
@@ -210,6 +236,7 @@ src/
 ```
 
 ### Environment Variables
+
 - `INARA_API_BASE_URL` - Inara API endpoint
 - `JWT_SECRET` - JWT signing secret
 - `DATABASE_URL` - D1 database binding
@@ -219,6 +246,7 @@ src/
 - `NEXT_PUBLIC_API_URL` - Frontend API URL
 
 ### Package.json Scripts
+
 ```json
 {
   "scripts": {
@@ -245,6 +273,7 @@ src/
 ```
 
 ### Development Environment
+
 - **VS Code Extensions**: Tailwind CSS IntelliSense, ESLint, Prettier, GitLens, Thunder Client
 - **VS Code Settings**: Format on save, TypeScript preferences, Tailwind class regex
 - **Recommended Tools**: Docker, Wrangler CLI, Cloudflare Dashboard
