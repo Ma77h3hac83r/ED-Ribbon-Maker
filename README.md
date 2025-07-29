@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Elite Dangerous Ribbon Maker
 
-## Getting Started
+[![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![Cloudflare](https://img.shields.io/badge/Cloudflare-Workers-orange?style=for-the-badge&logo=cloudflare)](https://workers.cloudflare.com/)
+[![Drizzle ORM](https://img.shields.io/badge/Drizzle_ORM-0.29-FF6B6B?style=for-the-badge)](https://orm.drizzle.team/)
+[![shadcn/ui](https://img.shields.io/badge/shadcn/ui-0.0.1-000000?style=for-the-badge)](https://ui.shadcn.com/)
 
-First, run the development server:
+A modern web application for Elite Dangerous commanders to generate and display their virtual ribbon racks.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Inara.cz Integration**: Sync commander data directly from Inara.cz API
+- **SVG Ribbon Generation**: Create high-quality, scalable ribbon graphics
+- **Customizable Layouts**: Arrange ribbons in horizontal, vertical, or grid layouts
+- **PNG Export**: Convert SVG ribbons to PNG format for sharing
+- **User Authentication**: Secure login with JWT session management
+- **Cloudflare Edge**: Fast, global deployment with Workers and D1 database
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🏗️ Project Architecture
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Frontend Stack
 
-## Learn More
+- **Next.js 14** with App Router for server-side rendering
+- **TypeScript** for type safety and better development experience
+- **Tailwind CSS** with shadcn/ui components for modern UI
+- **Zustand** for client-side state management
+- **TanStack Query** for server state and caching
+- **React Hook Form** with Zod validation
+- **Framer Motion** for smooth animations
 
-To learn more about Next.js, take a look at the following resources:
+### Backend & Infrastructure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Cloudflare Workers** for edge computing
+- **Hono** web framework for API development
+- **D1 Database** (SQLite) for data persistence
+- **Cloudflare KV** for caching and session storage
+- **Cloudflare R2** for image storage
+- **Jose** for JWT authentication
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Development Tools
 
-## Deploy on Vercel
+- **ESLint** & **Prettier** for code quality
+- **Vitest** for unit testing
+- **Playwright** for end-to-end testing
+- **MSW** for API mocking
+- **Drizzle ORM** for database management
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📋 Project Status
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### ✅ Phase 1: Foundation (Complete)
+
+- [x] Repository setup and development environment
+- [x] Next.js project with TypeScript and App Router
+- [x] Tailwind CSS and shadcn/ui components
+- [x] ESLint, Prettier, and VS Code configuration
+- [x] Cloudflare resources (D1, KV, R2)
+- [x] Basic project structure and documentation
+
+### 🔄 Phase 2: Core Development (In Progress)
+
+- [ ] Enhanced development tools setup
+- [ ] Cloudflare infrastructure with Hono
+- [ ] Database schema with Drizzle ORM
+- [ ] Authentication system
+- [ ] Inara.cz API integration
+- [ ] Basic ribbon generation
+
+### 📅 Upcoming Phases
+
+- **Phase 3**: Advanced ribbon features and layouts
+- **Phase 4**: User interface and experience
+- **Phase 5**: Testing and quality assurance
+- **Phase 6**: Performance optimization
+- **Phase 7**: Deployment and monitoring
+- **Phase 8**: Documentation and community features
+- **Phase 9**: Advanced features and integrations
+
+## 🤝 Contributing
+
+This project is in active development. Contributions are welcome! Please read our contributing guidelines and development rules before submitting pull requests.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+**Built with ❤️ for the Elite Dangerous community**

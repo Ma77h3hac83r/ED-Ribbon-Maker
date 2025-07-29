@@ -189,3 +189,8 @@ node_modules/sharp/build/Release/
 # Wrangler
 .wrangler/
 .dev.vars
+
+DEVELOPMENT_RECOMMENDATIONS.md
+ENIRONMENT_SETUP.md
+PROJECT_OUTLINE.md
+PROJECT_RULES.md
