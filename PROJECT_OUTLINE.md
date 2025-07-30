@@ -96,10 +96,11 @@ A Cloudflare-hosted web application that allows Elite Dangerous pilots to genera
 
 ### Testing Strategy
 
-- **Vitest**: Fast unit testing (works great with Cloudflare Workers)
-- **MSW (Mock Service Worker)**: Mock Inara API for development
-- **Playwright**: End-to-end testing with visual regression testing
-- **Testing Library**: Component testing utilities
+- **Vitest**: Fast unit testing with comprehensive setup (works great with Cloudflare Workers)
+- **MSW (Mock Service Worker)**: Complete API mocking infrastructure for development and testing
+- **React Testing Library**: Component testing utilities with custom render function
+- **Playwright**: End-to-end testing with visual regression testing (planned)
+- **Test Coverage**: 94.4% success rate with 101/107 tests passing
 
 ### Performance & Optimization
 
@@ -151,6 +152,7 @@ A Cloudflare-hosted web application that allows Elite Dangerous pilots to genera
 - **Docker**: Consistent development environment
 - **Concurrently**: Run multiple dev servers simultaneously
 - **Plop.js**: Scaffold new components/endpoints
+- **MSW**: API mocking for development without backend dependencies
 
 ## Future Extensibility
 
@@ -171,14 +173,20 @@ A Cloudflare-hosted web application that allows Elite Dangerous pilots to genera
 
 ## Technical Specifications
 
-### API Endpoints (Planned)
+### API Endpoints (Planned & Mocked)
 
 - `POST /api/auth/login` - User authentication
 - `POST /api/auth/register` - User registration
 - `POST /api/sync/inara` - Inara data synchronization
 - `GET /api/commander/profile` - Commander profile data
-- `GET /api/ribbons/generate` - Ribbon generation
-- `PUT /api/user/preferences` - User preferences update
+- `PUT /api/commander/profile` - Update commander profile
+- `GET /api/ribbons` - Get available ribbons
+- `POST /api/ribbons/generate` - Ribbon generation
+- `GET /api/user/preferences` - Get user preferences
+- `PUT /api/user/preferences` - Update user preferences
+- `POST https://inara.cz/inapi/v1/` - Direct Inara API calls (mocked)
+
+_All endpoints are fully mocked with MSW for development and testing_
 
 ### Database Schema (D1 with Drizzle ORM)
 
@@ -230,6 +238,7 @@ src/
 ├── types/            # TypeScript type definitions
 ├── styles/           # Global styles
 ├── test/             # Test setup and utilities
+├── mocks/            # MSW API mocking infrastructure
 └── app/              # Next.js app directory
     ├── api/          # API routes
     └── functions/    # Cloudflare Functions

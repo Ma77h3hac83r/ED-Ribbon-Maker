@@ -14,75 +14,75 @@
 
 ### 1.2 Enhanced Development Tools Setup
 
-- [ ] Install and configure Zod for type validation
-- [ ] Set up TanStack Query for server state management
-- [ ] Install React Hook Form with Zod resolver
-- [ ] Set up Zustand for client state management
-- [ ] Install Framer Motion for animations
-- [ ] Configure shadcn/ui components
-- [ ] Set up Vitest for testing
-- [ ] Install MSW for API mocking
+- [x] 1.2.1 Install and configure Zod for type validation
+- [x] 1.2.2 Set up TanStack Query for server state management
+- [x] 1.2.3 Install React Hook Form with Zod resolver
+- [x] 1.2.4 Set up Zustand for client state management
+- [x] 1.2.5 Install Framer Motion for animations
+- [x] 1.2.6 Configure shadcn/ui components
+- [x] 1.2.7 Set up Vitest for testing
+- [x] 1.2.8 Install MSW for API mocking
 
 ### 1.3 Cloudflare Infrastructure Setup
 
-- [ ] Create Cloudflare D1 database
-- [ ] Set up Cloudflare KV namespace
-- [ ] Create Cloudflare R2 bucket
-- [ ] Configure Cloudflare Pages project
-- [ ] Set up environment variables in Cloudflare dashboard
-- [ ] Create wrangler.toml configuration
-- [ ] Install and configure Hono framework
+- [ ] 1.3.1 Create Cloudflare D1 database
+- [ ] 1.3.2 Set up Cloudflare KV namespace
+- [ ] 1.3.3 Create Cloudflare R2 bucket
+- [ ] 1.3.4 Configure Cloudflare Pages project
+- [ ] 1.3.5 Set up environment variables in Cloudflare dashboard
+- [ ] 1.3.6 Create wrangler.toml configuration
+- [ ] 1.3.7 Install and configure Hono framework
 
 ### 1.4 Database Schema with Drizzle ORM
 
-- [ ] Install Drizzle ORM and Drizzle Kit
-- [ ] Create D1 database schema with Drizzle (users, commander_profiles, user_preferences)
-- [ ] Write database migration scripts
-- [ ] Set up database connection utilities
-- [ ] Create basic CRUD operations for database tables
-- [ ] Set up Drizzle Studio for database management
+- [ ] 1.4.1 Install Drizzle ORM and Drizzle Kit
+- [ ] 1.4.2 Create D1 database schema with Drizzle (users, commander_profiles, user_preferences)
+- [ ] 1.4.3 Write database migration scripts
+- [ ] 1.4.4 Set up database connection utilities
+- [ ] 1.4.5 Create basic CRUD operations for database tables
+- [ ] 1.4.6 Set up Drizzle Studio for database management
 
 ## Phase 2: Backend Development (Week 2-3)
 
 ### 2.1 Authentication System
 
-- [ ] Implement user registration endpoint with Zod validation
-- [ ] Implement user login endpoint with Zod validation
-- [ ] Set up JWT token generation and validation with Jose library
-- [ ] Create password hashing utilities with bcryptjs
-- [ ] Implement session management middleware
-- [ ] Add authentication middleware for protected routes
-- [ ] Set up NextAuth.js or Clerk for comprehensive auth
+- [ ] 2.1.1 Implement user registration endpoint with Zod validation
+- [ ] 2.1.2 Implement user login endpoint with Zod validation
+- [ ] 2.1.3 Set up JWT token generation and validation with Jose library
+- [ ] 2.1.4 Create password hashing utilities with bcryptjs
+- [ ] 2.1.5 Implement session management middleware
+- [ ] 2.1.6 Add authentication middleware for protected routes
+- [ ] 2.1.7 Set up NextAuth.js or Clerk for comprehensive auth
 
 ### 2.2 Inara API Integration
 
-- [ ] Research Inara API documentation
-- [ ] Create Inara API client utilities with Zod schemas
-- [ ] Implement 'getcommanderprofile' endpoint integration
-- [ ] Add API key validation and error handling
-- [ ] Create data normalization functions
-- [ ] Implement rate limiting for Inara API calls
-- [ ] Set up MSW for mocking Inara API in development
+- [ ] 2.2.1 Research Inara API documentation
+- [ ] 2.2.2 Create Inara API client utilities with Zod schemas
+- [ ] 2.2.3 Implement 'getcommanderprofile' endpoint integration
+- [ ] 2.2.4 Add API key validation and error handling
+- [ ] 2.2.5 Create data normalization functions
+- [ ] 2.2.6 Implement rate limiting for Inara API calls
+- [ ] 2.2.7 Set up MSW for mocking Inara API in development
 
 ### 2.3 Core API Endpoints with Hono
 
-- [ ] Set up Hono framework for API development
-- [ ] Create `/api/auth/login` endpoint with Zod validation
-- [ ] Create `/api/auth/register` endpoint with Zod validation
-- [ ] Create `/api/sync/inara` endpoint with Zod validation
-- [ ] Create `/api/commander/profile` endpoint with Zod validation
-- [ ] Create `/api/user/preferences` endpoint with Zod validation
-- [ ] Add proper error handling and validation middleware
-- [ ] Implement CORS and security headers
+- [ ] 2.3.1 Set up Hono framework for API development
+- [ ] 2.3.2 Create `/api/auth/login` endpoint with Zod validation
+- [ ] 2.3.3 Create `/api/auth/register` endpoint with Zod validation
+- [ ] 2.3.4 Create `/api/sync/inara` endpoint with Zod validation
+- [ ] 2.3.5 Create `/api/commander/profile` endpoint with Zod validation
+- [ ] 2.3.6 Create `/api/user/preferences` endpoint with Zod validation
+- [ ] 2.3.7 Add proper error handling and validation middleware
+- [ ] 2.3.8 Implement CORS and security headers
 
 ### 2.4 Data Synchronization
 
-- [ ] Implement background sync logic
-- [ ] Set up Cloudflare Workers Cron triggers
-- [ ] Create sync state management with Durable Objects
-- [ ] Add data caching with KV
-- [ ] Implement sync status tracking
-- [ ] Set up TanStack Query for data synchronization
+- [ ] 2.4.1 Implement background sync logic
+- [ ] 2.4.2 Set up Cloudflare Workers Cron triggers
+- [ ] 2.4.3 Create sync state management with Durable Objects
+- [ ] 2.4.4 Add data caching with KV
+- [ ] 2.4.5 Implement sync status tracking
+- [ ] 2.4.6 Set up TanStack Query for data synchronization
 
 ## Phase 3: Frontend Development (Week 4-5)
 
